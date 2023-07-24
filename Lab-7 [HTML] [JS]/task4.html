@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Date of Birth</legend>
+        DD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; YYYY <br>
+        <input type="text" size="2px" id="day"> / <input type="text" size="2px" id="month"> / <input type="text" size="2px" id="year">
+        <hr width="180px"  align="left">
+        <button onclick="checkDate()">Submit</button>
+    </fieldset>
+    <h3 id="message"></h3>
+    <script>
+        function checkDate(){
+            let day = document.getElementById("day").value;
+            let month = document.getElementById("month").value;
+            let year = document.getElementById("year").value;
+
+			if (!day || !month || !year)
+			{
+                document.getElementById('message').innerHTML = "fields can not be empty";
+                return;
+			}
+            for (let i = 0; i < day.length; i++) {
+                if (checkChar(day[i])){}
+                else {
+                    document.getElementById('message').innerHTML = "invalid day";
+                    return;
+                }
+            }
+            for (let i = 0; i < month.length; i++) {
+                if (checkChar(month[i])) {}
+                else {
+                    document.getElementById('message').innerHTML = "invalid month";
+                    return;
+                }
+            }
+            for (let i = 0; i < year.length; i++) {
+                if (checkChar(year[i])) {}
+                else {
+                    document.getElementById('message').innerHTML = "invalid year";
+                    return;
+                }
+            }
+
+            if (day > 31 || day < 1 || day === "") {
+                document.getElementById('message').innerHTML = "invalid day";
+                return;
+            }
+
+           else if (month > 12 || month < 1 || month === "") {
+            document.getElementById('message').innerHTML = "invalid month";
+            return;
+        }
+
+           else if (year.length !== 4 || year === "") {
+            document.getElementById('message').innerHTML = "invalid year";
+            return;
+        }
+        document.getElementById('message').innerHTML = "";
+        }
+        function checkChar(ch) {
+            if(ch >= '0' && ch <= '9') return true;
+        }
+    </script>
+</body>
+</html>

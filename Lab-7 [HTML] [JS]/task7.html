@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 7</title>
+</head>
+<body>
+    <fieldset>
+        <legend><b>Profile Picture</b></legend>
+        User Id <input type="text" id="userIdInput"> <br> <br>
+        Picture <input type="file" id="pictureInput"> 
+
+        <hr>
+
+        <button onclick="validateForm()">Submit</button>
+        <h3 id="message"></h3>
+    </fieldset>
+
+    <script>
+        function validateForm() {
+            let userIdInput = document.getElementById("userIdInput").value.trim();
+            let pictureInput = document.getElementById("pictureInput").value.trim();
+
+           if (!userIdInput || isNaN(parseInt(userIdInput)) || parseInt(userIdInput) <= 0) {
+            document.getElementById('message').innerHTML = "user id can not be empty and must be a positive number";
+            return;
+            }
+
+
+            if (!pictureInput) {
+                document.getElementById('message').innerHTML = "picture can not be empty";
+                return;
+            }
+
+            
+            document.getElementById('message').innerHTML = "";
+           
+        }
+
+       
+    </script>
+</body>
+</html>

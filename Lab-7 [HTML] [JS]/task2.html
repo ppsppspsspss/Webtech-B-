@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+    Email  <br><br>
+    <input type="text" id="mail"> &nbsp; <button title="hint: example@gmail.com">i</button><br><br>
+    <button onclick="checkMail()">Submit</button>
+    <h3 id="message"></h3>
+    <script>
+        function checkMail(){
+            let mail = document.getElementById('mail').value;
+            let atPos = mail.indexOf('@');
+            let dotPos = mail.lastIndexOf('.');
+
+            if(!mail) document.getElementById('message').innerHTML = "email can not be empty";
+            else if (atPos === -1 || atPos === 0 || dotPos === -1 || dotPos <= atPos + 1 || dotPos === mail.length - 1) {
+                document.getElementById('message').innerHTML = "invalid email address";
+            }else {
+                document.getElementById('message').innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

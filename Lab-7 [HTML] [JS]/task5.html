@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 5</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Degree</legend>
+        <input type="checkbox" id="SSC">SSC
+        <input type="checkbox" id="HSC">HSC
+        <input type="checkbox" id="BR">BR
+        <br>
+        <button onclick="checkSelection()">Submit</button>
+    </fieldset>
+    <h3 id="message"></h3>
+
+    <script>
+        function checkSelection() {
+            let sscChecked = document.getElementById("SSC").checked;
+            let hscChecked = document.getElementById("HSC").checked;
+            let brChecked = document.getElementById("BR").checked;
+
+            if (!sscChecked && !hscChecked && !brChecked) {
+                document.getElementById('message').innerHTML = "Please select atleast one degree";
+            }else {
+                document.getElementById('message').innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

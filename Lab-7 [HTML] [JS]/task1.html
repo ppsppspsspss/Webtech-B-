@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    Name  <br><br>
+    <input type="text" id="name"> <br><br>
+    <button onclick="checkName()">Submit</button>
+    <h3 id="message"></h3>
+    <script>
+        function checkName(){
+            let name = document.getElementById('name').value;
+            
+
+            if(!name) {
+                document.getElementById('message').innerHTML = "name can not be empty";
+                return;
+            }
+            let nameLen = name.split(' ');
+            if(nameLen.length < 2) {
+                document.getElementById('message').innerHTML = "name has to contain atleast two words";
+                return;
+            }
+            if(checkFirstChar(name[0])){}
+            else {
+                document.getElementById('message').innerHTML = "name must start with a letter";
+                return;
+            }
+            for(let i=0; i<name.length; i++){
+                if(checkChar(name[i])){}
+                else {
+                    document.getElementById('message').innerHTML = "name can only contain a-z or A-Z or dot or dash";
+                    return;
+                }
+            }
+            document.getElementById('message').innerHTML = "";  
+        }
+        function checkChar(ch){
+            if((ch >= 'A' && ch <= 'Z' ) || (ch >= 'a' && ch <= 'z') || ch == '.' || ch == '_' || ch == ' ') return true;
+        }
+        function checkFirstChar(ch){
+            if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) return true;
+        }
+        
+    </script>
+</body>
+</html>
