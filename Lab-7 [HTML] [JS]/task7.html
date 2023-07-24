@@ -17,8 +17,8 @@
 
     <script>
         function validateForm() {
-            let userIdInput = document.getElementById("userIdInput").value.trim();
-            let pictureInput = document.getElementById("pictureInput").value.trim();
+            let userIdInput = document.getElementById("userIdInput").value;
+            let pictureInput = document.getElementById("pictureInput").value;
 
            if (!userIdInput || isNaN(parseInt(userIdInput)) || parseInt(userIdInput) <= 0) {
             document.getElementById('message').innerHTML = "user id can not be empty and must be a positive number";
